@@ -1,5 +1,5 @@
 use std::{io, any};
-use pcap::{Device, Capture};
+use pcap::{Device, Capture, PacketHeader};
 
 fn main() {
     //  find all devices installed
@@ -31,4 +31,16 @@ fn main() {
         //  TODO: Remove before prod
         println!("{:?}", cap.next_packet());
     }
+}
+
+fn parse_packet(packet: pcap::Packet) {
+    let mut decodedPacket = 
+}
+
+struct DecodedPacket {
+    header: PacketHeader,
+    timestamp: u64,
+    caplen: u32,
+    len: u32,
+    data: Vec<u8>,
 }
