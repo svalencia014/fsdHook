@@ -34,7 +34,12 @@ fn main() {
 }
 
 fn parse_packet(packet: pcap::Packet) {
-    let mut decodedPacket = 
+    let mut decodedPacket;
+    decodedPacket.header = packet.header;
+    decodedPacket.timestamp = packet.header.ts;
+    decodedPacket.caplen = packet.header.caplen;
+    decodedPacket.len = packet.header.len;
+    decodedPacket.data = 
 }
 
 struct DecodedPacket {
