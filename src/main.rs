@@ -1,4 +1,4 @@
-use std::{io, any};
+use std::{io, ffi::c_long};
 use pcap::{Device, Capture, PacketHeader};
 
 fn main() {
@@ -31,21 +31,4 @@ fn main() {
         //  TODO: Remove before prod
         println!("{:?}", cap.next_packet());
     }
-}
-
-fn parse_packet(packet: pcap::Packet) {
-    let mut decodedPacket;
-    decodedPacket.header = packet.header;
-    decodedPacket.timestamp = packet.header.ts;
-    decodedPacket.caplen = packet.header.caplen;
-    decodedPacket.len = packet.header.len;
-    decodedPacket.data = 
-}
-
-struct DecodedPacket {
-    header: PacketHeader,
-    timestamp: u64,
-    caplen: u32,
-    len: u32,
-    data: Vec<u8>,
 }
